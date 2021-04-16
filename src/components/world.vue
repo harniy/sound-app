@@ -11,7 +11,7 @@
         :class="{ active: index === isActive }"
       >
         <img :src="world.img" />
-        <p class="wave_description">{{ world.description }}</p>
+        <p class="description">{{ world.description }}</p>
       </div>
     </div>
   </div>

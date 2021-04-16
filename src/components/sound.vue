@@ -11,10 +11,19 @@
         worldPlay
       "
     >
-    
-      <img class="close" src="../assets/icons/close.png" alt="" @click="closePanel">
-      <img class="show" src='../assets/icons/show.png' alt="" @click="showPanel">
-    
+      <img
+        class="close"
+        src="../assets/icons/close.png"
+        alt=""
+        @click="closePanel"
+      />
+      <img
+        class="show"
+        src="../assets/icons/show.png"
+        alt=""
+        @click="showPanel"
+      />
+
       <h3 class="modal_title">Control Sound</h3>
       <div class="sound_list">
         <ul>
@@ -151,7 +160,7 @@
             @click="getSound(wind.sound, idx)"
           >
             <img :src="wind.img" />
-            <p class="wind_description">{{ wind.description }}</p>
+            <p class="description">{{ wind.description }}</p>
           </div>
         </div>
       </div>
@@ -167,6 +176,7 @@
       <Nature @setNature="getNature" />
 
       <World @setWorld="getWorld" />
+
     </div>
   </main>
 </template>
@@ -223,6 +233,8 @@ export default {
         },
       ],
       isActive: null,
+      nameOfMood: "",
+      moodList: [],
 
       wind: false,
       fire: false,
@@ -337,7 +349,6 @@ export default {
 
     getNature(data) {
       this.naturePlay = [...data];
-      console.log(this.naturePlay);
     },
 
     stopAllSounds() {
@@ -386,19 +397,19 @@ export default {
       this.allSounds[5] = this.worldPlay;
     },
 
-    closePanel(){
-      document.querySelector('.control_modal').classList.add('hide')
-      document.querySelector('.close').style.display = 'none'
-      document.querySelector('.show').style.display = 'block'
+    closePanel() {
+      document.querySelector(".control_modal").classList.add("hide");
+      document.querySelector(".close").style.display = "none";
+      document.querySelector(".show").style.display = "block";
     },
 
-    showPanel(){
-      document.querySelector('.control_modal').classList.remove('hide')
-      
-      setTimeout(()=>{
-        document.querySelector('.close').style.display = 'block'
-      }, 500 )
-    }
+    showPanel() {
+      document.querySelector(".control_modal").classList.remove("hide");
+
+      setTimeout(() => {
+        document.querySelector(".close").style.display = "block";
+      }, 500);
+    },
   },
 
   watch: {
@@ -480,13 +491,7 @@ ul {
   cursor: pointer;
 }
 
-.wind_description,
-.fire_description,
-.rain_section,
-.lighting_section,
-.wave_section,
-.nature_section,
-.world_section {
+.description {
   font-weight: 700;
   color: #8b8b8b;
 }
@@ -511,7 +516,7 @@ img {
   right: 70px;
   box-shadow: 1px 3px 5px 0 #4c4c4c69;
   border-radius: 5px;
-  transition: .5s linear;
+  transition: 0.5s linear;
 }
 
 .modal_title {
@@ -559,24 +564,23 @@ img {
 }
 
 .container.end {
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 
 .hide {
   margin-left: -200px;
 }
 
-
 .show {
-   position: absolute;
-    right: -185%;
-    display: none;
+  position: absolute;
+  right: -185%;
+  display: none;
 }
 
 img.close {
-    position: absolute;
-    right: -85%;
-    width: 25px;
+  position: absolute;
+  right: -85%;
+  width: 25px;
 }
 
 
@@ -596,8 +600,8 @@ img.close {
   h3 {
     text-align: center;
   }
-  
-  h3.control_modal{
+
+  h3.control_modal {
     padding: 0;
   }
 
@@ -606,12 +610,12 @@ img.close {
     left: 0;
     width: 50%;
   }
-  .modal_title{
+  .modal_title {
     text-align: center;
   }
 
   li.sound_item {
     display: contents;
-}
+  }
 }
 </style>

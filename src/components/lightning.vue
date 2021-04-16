@@ -10,7 +10,7 @@
         :class="{ active: idx === isActive }"
       >
         <img :src="lighting.img" />
-        <p class="fire_description">{{ lighting.description }}</p>
+        <p class="description">{{ lighting.description }}</p>
       </div>
     </div>
   </div>
